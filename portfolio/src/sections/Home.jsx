@@ -11,8 +11,8 @@ import avator from "../assets/avator.png"
 
 const socials=[
   {Icon: FaXTwitter , label:"X" , href: " " },
-  {Icon: FaLinkedinIn , label:"LinkedIn" , href: " " },
-  {Icon: FaGithub , label:"X" , href: " " }
+  {Icon: FaLinkedinIn , label:"LinkedIn" , href: "https://www.linkedin.com/in/shashwat28/" },
+  {Icon: FaGithub , label:"X" , href: "https://github.com/shashwat9205" }
 ]
 
 
@@ -196,15 +196,24 @@ React.useEffect(()=>{
 
     </div>
 
-    {/* <div
-
-    /> */}
+    
 
 
 
    {/* right column */}
 
     <div className="relative hidden lg:block">
+
+    <div
+    className="absolute top-1/2 -translate-y-1/2 pointer-events-none"
+    style={{
+      right: "10px", width:"min(22vw , 410px)" , height:"min(40vw , 760px)", borderRadius:"50%", 
+      filter:"blur(38px)", opacity:0.32,
+      background: "conic-gradient(from 0deg ,#1cd8d2,#00bf8f,#302b63,#1cd8d2)"
+    }}
+
+    />
+
       <motion.img src={avator} alt="Shashwat" 
         className="absolute top-1/2 -translate-y-1/2 object-contain pointer-events-none"
         style={{

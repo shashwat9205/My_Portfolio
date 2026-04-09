@@ -9,16 +9,26 @@ import Testimonials from "./sections/Testimonials"
 import Contact from "./sections/Contact"
 import Footer from "./sections/Footer"
 import CustomCursor from "./components/CustomCursor"
+import React from "react"
+import IntroAnimation from "./components/IntroAnimation"
 
 
 export default function App(){
+
+  const [introDone,setIntroDone] = React.useState(false);
+
   return(
+
+    <>
+
+    {!introDone && <IntroAnimation onFinish={()=> setIntroDone(true)}/>}
+
+    
+    {introDone && (
     <div className=" relative gradient text-white">
     
     <CustomCursor/>
     {/* <ParticlesBackground/> */}
-
-
 
     <Navbar/>
     <Home/>
@@ -31,15 +41,10 @@ export default function App(){
     <Footer/>
     
 
-
-
-
     </div>
+    )}
 
-
-
-
-
+    </>
 
 
 
