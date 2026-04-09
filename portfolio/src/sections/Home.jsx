@@ -127,7 +127,7 @@ React.useEffect(()=>{
 
 
     >
-      Hello I'm
+      Hello, I'm
       <br />
       <span className="text-white font-bold text-7xl sm:text-6xl md:text-7xl lg:text-7xl lg:whitespace-nowrap">
         Shashwat Mishra
@@ -229,14 +229,6 @@ React.useEffect(()=>{
     </div>
 
     </section>
-
-
-
-
-
-
-
-
 
 
 
