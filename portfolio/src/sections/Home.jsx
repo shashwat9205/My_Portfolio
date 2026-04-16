@@ -219,7 +219,7 @@ React.useEffect(()=>{
         style={{
           right: "-30px", width:"min(45vw , 780px)", maxHeight:"90vh"
         }}
-        initial={{opacity:1, x:-200, y:40,scale:2}}
+        initial={{opacity:1, x:-200, y:40,scale:5}}
         animate={{opacity:1,x:0, y:0,scale:1}}
         transition={{delay:0.2 , duration:0.8}}
       />
