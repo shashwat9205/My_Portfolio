@@ -86,12 +86,6 @@ React.useEffect(()=>{
 
     </div> 
 
-    
-
-
-    
-
-
     <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2"> 
 
 
@@ -166,8 +160,6 @@ React.useEffect(()=>{
     >My Resume</a>
     </motion.div>
 
-
-
     <div className="mt-10 flex gap-5 text-2xl md:text-3xl justify-center lg:justify-start">
     {socials.map(({Icon,label,href}) => (
 
@@ -196,10 +188,6 @@ React.useEffect(()=>{
 
     </div>
 
-    
-
-
-
    {/* right column */}
 
     <div className="relative hidden lg:block">
@@ -225,12 +213,9 @@ React.useEffect(()=>{
       />
     </div>
 
-
     </div>
 
     </section>
-
-
 
   )
 
