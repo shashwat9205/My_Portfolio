@@ -68,14 +68,14 @@ export default function Skills(){
       touchY.current = e.touches[0].clientY;
     };
 
-    window.addEventListener('wheel', onwheel ,{passive:true});
+    window.addEventListener('wheel', onWheel ,{passive:true});
     window.addEventListener('touchstart', onTouchStart ,{passive:true});
     window.addEventListener('touchmove', onTouchMove ,{passive:true});
 
     return()=>{
-    window.addEventListener('wheel', onwheel);
-    window.addEventListener('touchstart', onTouchStart);
-    window.addEventListener('touchmove', onTouchMove);
+    window.removeEventListener('wheel', onWheel);
+    window.removeEventListener('touchstart', onTouchStart);
+    window.removeEventListener('touchmove', onTouchMove);
 
     }
 
@@ -91,11 +91,24 @@ export default function Skills(){
       const dt = (now-last)/1000;
       last=now;
       let next= x.get() + SPEED*dir*dt;
+      const loop = trackRef.current?.scrollWidth/3 || 0;
 
+      if(loop){
+        if(next <= -loop) next+=loop;
+        if(next >= 0) next-=loop;
+         
+      }
+
+      x.set(next);
+      id = requestAnimationFrame(tick)
     }
 
+    id = requestAnimationFrame(tick)
+    return() => cancelAnimationFrame(id)
 
-  })
+    
+
+  }, [dir , x]);
 
 
 
@@ -141,7 +154,9 @@ export default function Skills(){
     <div className='relative w-full overflow-hidden'>
     <motion.div
     ref={trackRef}
-     className='flex gap-10 text-6xl text-[#1cd8d2]'>
+     className='flex gap-10 text-6xl text-[#1cd8d2]'
+     style={{x , whiteSpace:"nowrap" , willChange:"transform"}}
+     >
 
     {repeated.map((s,i)=>(
       <div key={i} className='flex flex-col items-center gap-2 min-w-30'

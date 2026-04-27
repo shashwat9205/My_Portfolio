@@ -1,9 +1,22 @@
-import React from 'react'
+import { useState } from "react"
 
-const Projects = () => {
-  return (
-    <div className=' w-full h-screen'>Projects</div>
+
+
+
+const useIsMobile = (query = "(max-width : 639px)") => {
+  const[isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" && window.matchMedia(query).matches
   )
 }
 
-export default Projects
+export default function projects(){
+  return(
+
+    <section id="projects" className="relative text-white">
+
+    
+    </section>
+
+
+  )
+}
