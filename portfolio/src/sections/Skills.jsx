@@ -4,6 +4,8 @@ import { FaJava,FaReact } from 'react-icons/fa';
 import {SiNextdotjs, SiTypescript,SiTailwindcss,SiFastapi,SiPython,SiDocker,SiMongodb,SiAngular} from 'react-icons/si';
 import {DiNodejsSmall} from 'react-icons/di';
 import {motion, useMotionValue} from 'framer-motion';
+import { FaPhp } from "react-icons/fa6";
+
 
 
 export default function Skills(){
@@ -21,6 +23,8 @@ export default function Skills(){
     { icon: <DiNodejsSmall />, name: "Node.js" },
     { icon: <SiMongodb />, name: "MongoDB" },
     { icon: <SiAngular />, name: "Angular" },
+    { icon: <FaPhp /> , name: "PHP" },
+
   ];
 
   const repeated =[ ...skills,...skills,...skills]
