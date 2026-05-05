@@ -11,8 +11,9 @@ import admin1 from "../assets/w1.PNG";
 import admin2 from "../assets/w2.PNG";
 import ParticlesBackground from '../components/ParticlesBackground';
 
+
 const projects = [
-  { title: "Tyre Marketplace", image1: tyre1, image2: tyre2, link: "#", category: "E-Commerce Platform" },
+  { title: "Tyre Marketplace", image1: tyre1, image2: tyre2, link: "https://www.autodeal4u.in", category: "E-Commerce Platform" },
   { title: "Social Impact Hub", image1: social1, image2: social2, link: "#", category: "Non-Profit Initiative" },
   { title: "Vendor Admin Panel", image1: admin1, image2: admin2, link: "#", category: "Management System" },
 ];
@@ -53,11 +54,11 @@ const ProjectCard = ({ project, index, scrollYProgress }) => {
       className="absolute inset-0 items-center justify-center pointer-events-none"
     >
       {/* Project Images */}
-      <motion.div style={{ z: img1Z, opacity: img1Opacity, x: "-15%", rotateZ: 4 }} className="absolute w-[350px] md:w-[600px] aspect-video rounded-3xl overflow-hidden border border-white/5 shadow-2xl bg-black">
+      <motion.div style={{ z: img1Z, opacity: img1Opacity, x: "-15%", rotateZ: 4 }} className="absolute w-87.5 md:w-150 aspect-video rounded-3xl overflow-hidden border border-white/5 shadow-2xl bg-black">
         <img src={project.image1} alt="p1" className="w-full h-full object-cover" />
       </motion.div>
 
-      <motion.div style={{ z: img2Z, opacity: img2Opacity, x: "15%", y: "10%", rotateZ: -4 }} className="absolute w-[350px] md:w-[600px] aspect-video rounded-3xl overflow-hidden border border-white/5 shadow-2xl bg-black">
+      <motion.div style={{ z: img2Z, opacity: img2Opacity, x: "15%", y: "10%", rotateZ: -4 }} className="absolute w-87.5 md:w-150 aspect-video rounded-3xl overflow-hidden border border-white/5 shadow-2xl bg-black">
         <img src={project.image2} alt="p2" className="w-full h-full object-cover" />
       </motion.div>
 
@@ -65,12 +66,23 @@ const ProjectCard = ({ project, index, scrollYProgress }) => {
       <motion.div style={{ scale }} className="z-20 flex flex-col items-center text-center px-4">
         <span className="text-[10px] md:text-[11px] uppercase tracking-[1em] text-cyan-400 font-bold mb-6">{project.category}</span>
         <h3 className="text-5xl md:text-[8vw] font-black uppercase text-white tracking-tighter leading-none drop-shadow-2xl">{project.title}</h3>
-        <motion.a href={project.link} className="mt-10 group relative flex items-center gap-4 pointer-events-auto" whileHover={{ gap: "20px" }}>
-          <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-white/60 group-hover:text-cyan-400">Explore Projects</span>
-          <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-cyan-400 transition-all">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-white group-hover:text-cyan-400"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </div>
-        </motion.a>
+        <motion.a 
+  href={project.link} 
+  target="_blank"        // Opens in new tab
+  rel="noopener noreferrer" // Security best practice for external links
+  className="mt-10 group relative flex items-center gap-4 pointer-events-auto cursor-pointer"
+  whileHover={{ gap: "20px" }}
+>
+  <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-white/60 group-hover:text-cyan-400 transition-colors">
+    View Case Study
+  </span>
+  <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-cyan-400 transition-all">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-white group-hover:text-cyan-400">
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+      <polyline points="12 5 19 12 12 19"></polyline>
+    </svg>
+  </div>
+</motion.a>
       </motion.div>
     </motion.div>
   );
@@ -125,7 +137,7 @@ const introOpacity = useTransform(scrollYProgress, [0, 0.03, 0.08, 0.1], [0, 1, 
 const outroOpacity = useTransform(scrollYProgress, [0.96, 0.99], [0, 1]);
 
   return (
-    <section 
+    <section id='projects'
       ref={containerRef} 
       className={`relative h-[1500vh] bg-black z-50 transition-opacity duration-1000 ${isReady ? 'opacity-100' : 'opacity-0'}`}
     >
@@ -135,11 +147,37 @@ const outroOpacity = useTransform(scrollYProgress, [0.96, 0.99], [0, 1]);
       {isReady && (
         <div className="sticky top-0 h-screen w-full overflow-hidden bg-black">
         <ParticlesBackground/>
+        <ParticlesBackground/>
+        <ParticlesBackground/>
+        
           {/* Glow Effects */}
-          <div className="absolute inset-0 z-10 pointer-events-none">
-            <div className="absolute -top-32 -left-32 w-[30vw] h-[30vw] bg-cyan-500/10 blur-[150px]" />
-            <div className="absolute bottom-0 right-0 w-[30vw] h-[30vw] bg-blue-900/10 blur-[150px]" />
-          </div>
+          <div className="absolute inset-0">
+
+
+
+     {/* animation-left-up , bottom-right */}
+    <div className="absolute -top-32 -left-32
+    w-[70vw] sm:w-[z-500vw] md:w-[30vw]
+    h-[70vw] sm:h-[50vw] md:h-[30vw]
+    bg-linear-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2]
+    opacity-30 sm:opacity-20 md:opacity-10
+    blur-[100px] sm:blur-[130px] md:blur-[150px]
+    animate-pulse
+    ">
+
+    </div>
+
+    <div className="absolute bottom-0  right-0 
+    w-[70vw] sm:w-[z-500vw] md:w-[30vw]
+    h-[70vw] sm:h-[50vw] md:h-[30vw]
+    bg-linear-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2]
+    opacity-30 sm:opacity-20 md:opacity-10
+    blur-[100px] sm:blur-[130px] md:blur-[150px]
+    animate-pulse [animation-delay:500ms]
+    "></div>
+
+
+    </div> 
 
           {/* Intro Screen */}
           <motion.div style={{ opacity: introOpacity }} className="absolute inset-0 flex flex-col items-center justify-center text-center z-20">
